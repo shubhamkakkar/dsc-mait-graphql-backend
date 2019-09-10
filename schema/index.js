@@ -10,4 +10,10 @@ const schema = new GraphQLSchema({
     mutation
 });
 
+/*
+* TODO
+* validation mongoose
+* edit add delete only team token type limitation
+* */
+
 export default schema;

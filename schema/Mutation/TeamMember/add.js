@@ -14,6 +14,7 @@ const addTeamMember = {
         linkedin: {type: GraphQLString},
         github: {type: GraphQLString},
         bio: {type: GraphQLString},
+        //   TODO: add createdBy to ensure deletion/edit validation
     },
     resolve: (parentValue, {name, email, linkedin, github, bio}) => {
         return TeamMember.findOne({email})
@@ -23,7 +24,7 @@ const addTeamMember = {
                     return newTeamMember
                         .save()
                         .then(res => {
-                            console.log({res});
+                            console.log({res})
                             return res
                         })
                         .catch(error => new GraphQLError({

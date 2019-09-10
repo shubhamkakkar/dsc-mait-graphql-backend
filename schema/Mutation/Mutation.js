@@ -3,15 +3,18 @@ import {
 } from "graphql";
 
 import {signUp, logIn} from "./User"
-import {add} from "./TeamMember"
+import {add, deleteTeamMember, editTeamMember} from "./TeamMember"
 const userMutations = {
     signUp,
-    logIn
+    logIn,
+
 };
 
 const teamMemberMutations = {
-    addTeamMember: add
-}
+    addTeamMember: add,
+    deleteTeamMember,
+    editTeamMember
+};
 
 const mutation = new GraphQLObjectType({
     name: "Mutation",

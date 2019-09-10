@@ -11,7 +11,7 @@ dotenv.config();
 const MONGO_URI = process.env.MONGO_URI;
 const app = express();
 
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, })
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useFindAndModify: false})
     .then(res => console.log("connected to mongoose instance"))
     .catch(er => console.log("failed to connect to mongoose instance"));
 
