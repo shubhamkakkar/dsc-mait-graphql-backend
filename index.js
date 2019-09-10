@@ -8,7 +8,7 @@ import schema from "./schema"
 
 dotenv.config();
 
-const MONGO_URI = process.env.MONGO_URI
+const MONGO_URI = process.env.MONGO_URI;
 const app = express();
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, })
