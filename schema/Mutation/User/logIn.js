@@ -36,14 +36,13 @@ const login = {
                     )
                 }
             })
-            .catch(er => {
-                return new GraphQLError({
+            .catch(error => new GraphQLError({
                         errorCode: 500,
                         message: `Timeout`,
-                        error: er
+                        error
                     }
                 )
-            })
+            )
     }
 };
 

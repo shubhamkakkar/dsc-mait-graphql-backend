@@ -16,6 +16,7 @@ const schema = new GraphQLSchema({
 * edit add delete only team token type limitation
 * add non null to graphql args
 * upload images of team
+* add designation in team member and hence in user schema
 */
 
 export default schema;

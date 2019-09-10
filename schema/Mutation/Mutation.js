@@ -7,7 +7,8 @@ import userMutations from "./User"
 const mutation = new GraphQLObjectType({
     name: "Mutation",
     fields: {
-        ...userMutations,}
+        ...userMutations,
+    }
 });
 
 export default mutation
