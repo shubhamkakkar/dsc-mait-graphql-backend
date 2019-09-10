@@ -1,5 +1,5 @@
 import {GraphQLObjectType, GraphQLList, GraphQLString} from "graphql";
-import TeamMember from "../../../models/TeamMember";
+import User from "../../../models/User";
 import fields from "../../QueryMutationHelper/teamMemberFields";
 
 export const teamMember = {
@@ -8,7 +8,7 @@ export const teamMember = {
         fields
     }),
     args: {email: {type: GraphQLString}},
-    resolve: (parentValue, {email}) => TeamMember.findOne({email})
+    resolve: (parentValue, {email}) => User.findOne({email, role: "team-member"})
 };
 
 const teamMemberObject = new GraphQLObjectType({
@@ -19,5 +19,5 @@ const teamMemberObject = new GraphQLObjectType({
 export const teamMembers = {
     type: new GraphQLList(teamMemberObject),
     args: {},
-    resolve: (parentValue, args) => TeamMember.find()
+    resolve: (parentValue, args) => User.find({role: "team-member"})
 };

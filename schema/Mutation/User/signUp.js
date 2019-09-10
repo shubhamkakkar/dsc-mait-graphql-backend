@@ -1,4 +1,4 @@
-import {GraphQLList, GraphQLObjectType, GraphQLString, GraphQLError} from "graphql";
+import {GraphQLObjectType, GraphQLString, GraphQLError} from "graphql";
 import User from "../../../models/User"
 import fields from "../../QueryMutationHelper/userFields";
 import {hashedPasswordGenerator, userReturn} from "../../QueryMutationHelper/userHelper";

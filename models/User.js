@@ -14,6 +14,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    role: {
+        type: String,
+        default: "user"
+    }
 }, { collection: "User" });
 
 export default model('User', UserSchema);

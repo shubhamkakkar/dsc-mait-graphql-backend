@@ -1,8 +1,10 @@
 import signUp from "./signUp";
 import logIn from "./logIn";
-
-
-export {
+import editForRole from "./editForRole";
+const userMutations = {
     signUp,
-    logIn
-}
+    logIn,
+    editForRole
+};
+
+export default  userMutations;
