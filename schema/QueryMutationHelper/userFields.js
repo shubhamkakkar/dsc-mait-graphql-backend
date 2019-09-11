@@ -4,6 +4,7 @@ const userFields = {
     name: {type: GraphQLString},
     email: {type: GraphQLString},
     token: {type: GraphQLString},
+    role: {type: GraphQLString},
 };
 
 export default userFields

@@ -1,35 +1,30 @@
 import {GraphQLError, GraphQLObjectType, GraphQLString} from "graphql";
-import fields from "../../QueryMutationHelper/userFields";
+import fields from "../../QueryMutationHelper/teamMemberFields";
 import User from "../../../models/User";
+import TeamMember from "../../../models/TeamMember";
 
-const editForRole = {
+
+const editTeamMemberProfileInfo = {
     type: new GraphQLObjectType({
-        name: "editForRole",
+        name: "editTeamMemberProfileInfo",
         fields
     }),
     args: {
         token: {type: GraphQLString},
         email: {type: GraphQLString},
-        role: {type: GraphQLString},
+        linkedin: {type: GraphQLString},
+        github: {type: GraphQLString},
+        bio: {type: GraphQLString},
     },
-    resolve: (parentValue, {email,role}) => {
-        return User.findOne({email})
+    resolve: (parentValue, {email, linkedin, github, bio}) => {
+        return User.findOne({email, role: "team-member"})
             .then(user => {
                 if (user) {
                     const update = {
-                        role,
-                    };
-
-                    return User.findByIdAndUpdate(update._id, {
-                        $set: update
-                    })
-                        .then(_ => ({...update, ...user._doc}))
-                        .catch(error => new GraphQLError({
-                                errorCode: 500,
-                                message: `Timeout, update failed`,
-                                error
-                            })
-                        )
+                        linkedin, github, bio
+                        // ADD 2 WAY RELATIONSHIP AS IN BLOGS - USER PROFILE GIVES ALL BLOGS
+                        // SIMILARLY -> I WILL HAVE ONLY USER ID WHICH WILL GIVE ALL USER INFO, NO NEED TO STORE DOUBLE, USE USER ID/ EMAIL
+                    }
                 } else {
                     return new GraphQLError({
                             errorCode: 400,
@@ -46,4 +41,4 @@ const editForRole = {
             )
     }
 };
-export default editForRole
+export default editTeamMemberProfileInfo
