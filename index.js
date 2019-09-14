@@ -15,7 +15,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useFindAndModify: false})
     .then(res => console.log("connected to mongoose instance"))
     .catch(er => console.log("failed to connect to mongoose instance"));
 
-app.use('/graphql', cors(), (req, res) => {
+app.use('/', cors(), (req, res) => {
     expressGraphQL({
         schema,
         graphiql: true,
