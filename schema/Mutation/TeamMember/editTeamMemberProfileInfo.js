@@ -11,6 +11,7 @@ const editTeamMemberProfileInfo = {
     }),
     args: {
         token: {type: GraphQLString},
+        // TODO: make token non null
         email: {type: new GraphQLNonNull(GraphQLString)},
         bio: {type: new GraphQLNonNull(GraphQLString)},
         linkedin: {type: new GraphQLNonNull(GraphQLString)},

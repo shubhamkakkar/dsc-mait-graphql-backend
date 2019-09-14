@@ -9,6 +9,7 @@ const   editForRole = {
     }),
     args: {
         token: {type: GraphQLString},
+        // TODO: make token non null
         email: {type: new GraphQLNonNull(GraphQLString)},
         role: {type: new GraphQLNonNull(GraphQLString)},
     },

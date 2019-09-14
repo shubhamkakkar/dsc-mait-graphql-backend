@@ -12,11 +12,11 @@ const schema = new GraphQLSchema({
 
 /*
  TODO
-* validation mongoose
+* add event, update, delete event
 * edit add delete only team token type limitation
-* add non null to graphql args
 * upload images of team
 * add designation in team member and hence in user schema
-*/
+* validation mongoose
+* */
 
 export default schema;
