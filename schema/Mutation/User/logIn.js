@@ -1,4 +1,4 @@
-import {GraphQLError, GraphQLObjectType, GraphQLString} from "graphql";
+import {GraphQLError, GraphQLNonNull, GraphQLObjectType, GraphQLString} from "graphql";
 import bcrypt from "bcrypt";
 import fields from "../../QueryMutationHelper/userFields";
 import User from "../../../models/User"
@@ -10,8 +10,8 @@ const login = {
         fields
     }),
     args: {
-        email: {type: GraphQLString},
-        password: {type: GraphQLString},
+        email: {type: new GraphQLNonNull(GraphQLString)},
+        password: {type: new GraphQLNonNull(GraphQLString)},
     },
     resolve: async (parentValue, {email, password}) => {
         return User.findOne({email})
@@ -37,10 +37,10 @@ const login = {
                 }
             })
             .catch(error => new GraphQLError({
-                        errorCode: 500,
-                        message: `Timeout`,
-                        error
-                    }
+                    errorCode: 500,
+                    message: `Timeout`,
+                    error
+                }
                 )
             )
     }

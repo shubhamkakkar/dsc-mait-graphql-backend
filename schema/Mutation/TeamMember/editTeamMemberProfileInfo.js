@@ -1,4 +1,4 @@
-import {GraphQLError, GraphQLObjectType, GraphQLString} from "graphql";
+import {GraphQLError, GraphQLNonNull, GraphQLObjectType, GraphQLString} from "graphql";
 import fields from "../../QueryMutationHelper/teamMemberFields";
 import User from "../../../models/User";
 import TeamMember from "../../../models/TeamMember";
@@ -11,10 +11,10 @@ const editTeamMemberProfileInfo = {
     }),
     args: {
         token: {type: GraphQLString},
-        email: {type: GraphQLString},
+        email:{type: new GraphQLNonNull(GraphQLString)},
         linkedin: {type: GraphQLString},
         github: {type: GraphQLString},
-        bio: {type: GraphQLString},
+        bio: {type: new GraphQLNonNull(GraphQLString)},
     },
     resolve: (parentValue, {email, linkedin, github, bio}) => {
         return User.findOne({email, role: "team-member"})

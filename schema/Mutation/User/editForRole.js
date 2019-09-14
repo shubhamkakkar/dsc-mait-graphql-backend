@@ -1,16 +1,16 @@
-import {GraphQLError, GraphQLObjectType, GraphQLString} from "graphql";
+import {GraphQLError, GraphQLObjectType, GraphQLString, GraphQLNonNull} from "graphql";
 import fields from "../../QueryMutationHelper/userFields";
 import User from "../../../models/User";
 
-const editForRole = {
+const   editForRole = {
     type: new GraphQLObjectType({
         name: "editForRole",
         fields
     }),
     args: {
         token: {type: GraphQLString},
-        email: {type: GraphQLString},
-        role: {type: GraphQLString},
+        email: {type: new GraphQLNonNull(GraphQLString)},
+        role: {type: new GraphQLNonNull(GraphQLString)},
     },
     resolve: (parentValue, {email,role}) => {
         return User.findOne({email})

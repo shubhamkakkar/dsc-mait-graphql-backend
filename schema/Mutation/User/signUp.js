@@ -1,4 +1,4 @@
-import {GraphQLObjectType, GraphQLString, GraphQLError} from "graphql";
+import {GraphQLObjectType, GraphQLString, GraphQLError, GraphQLNonNull} from "graphql";
 import User from "../../../models/User"
 import fields from "../../QueryMutationHelper/userFields";
 import {hashedPasswordGenerator, userReturn} from "../../QueryMutationHelper/userHelper";
@@ -9,9 +9,9 @@ const signUp = {
         fields
     }),
     args: {
-        name: {type: GraphQLString},
-        email: {type: GraphQLString},
-        password: {type: GraphQLString},
+        name: {type: new GraphQLNonNull(GraphQLString)},
+        email: {type: new GraphQLNonNull(GraphQLString)},
+        password: {type: new GraphQLNonNull(GraphQLString)},
     },
     resolve: async (parentValue, {name, email, password}) => {
         const hashedPassword = await hashedPasswordGenerator(password);

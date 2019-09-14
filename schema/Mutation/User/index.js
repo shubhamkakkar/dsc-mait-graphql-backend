@@ -4,7 +4,7 @@ import editForRole from "./editForRole";
 const userMutations = {
     signUp,
     logIn,
-    editForRole: editForRole
+    editForRole
 };
 
 export default  userMutations;
