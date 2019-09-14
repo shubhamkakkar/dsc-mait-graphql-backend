@@ -2,11 +2,7 @@
 import { Schema, model } from "mongoose";
 
 const TeamMember = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email : {
+    userId: {
         type: String,
         required: true
     },
@@ -16,7 +12,6 @@ const TeamMember = new Schema({
     },
     github : {
         type: String,
-        required: true
     },
     bio : {
         type: String,

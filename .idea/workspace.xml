@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2bd3d255-3cd2-4fe3-b043-c896d90845d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TeamMember.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/TeamMember.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schema/Mutation/TeamMember/editTeamMemberProfileInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/Mutation/TeamMember/editTeamMemberProfileInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/Mutation/User/editForRole.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/Mutation/User/editForRole.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/Mutation/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/Mutation/User/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/Mutation/User/logIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/Mutation/User/logIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/Mutation/User/signUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/Mutation/User/signUp.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +74,8 @@
       <workItem from="1568134086241" duration="8746000" />
       <workItem from="1568179753610" duration="1700000" />
       <workItem from="1568439627698" duration="1261000" />
-      <workItem from="1568485388394" duration="686000" />
+      <workItem from="1568485388394" duration="807000" />
+      <workItem from="1568486239138" duration="2117000" />
     </task>
     <servers />
   </component>

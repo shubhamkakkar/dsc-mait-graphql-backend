@@ -11,20 +11,43 @@ const editTeamMemberProfileInfo = {
     }),
     args: {
         token: {type: GraphQLString},
-        email:{type: new GraphQLNonNull(GraphQLString)},
-        linkedin: {type: GraphQLString},
-        github: {type: GraphQLString},
+        email: {type: new GraphQLNonNull(GraphQLString)},
         bio: {type: new GraphQLNonNull(GraphQLString)},
+        linkedin: {type: new GraphQLNonNull(GraphQLString)},
+        github: {type: GraphQLString},
     },
     resolve: (parentValue, {email, linkedin, github, bio}) => {
-        return User.findOne({email, role: "team-member"})
+        const filter = {email, role: "team-member"};
+        return User.findOne(filter)
             .then(user => {
                 if (user) {
-                    const update = {
-                        linkedin, github, bio
-                        // ADD 2 WAY RELATIONSHIP AS IN BLOGS - USER PROFILE GIVES ALL BLOGS
-                        // SIMILARLY -> I WILL HAVE ONLY USER ID WHICH WILL GIVE ALL USER INFO, NO NEED TO STORE DOUBLE, USE USER ID/ EMAIL
+                    let update = {
+                        bio,
+                        linkedin,
+                        userId: user._id
+                    };
+                    if (github) {
+                        update = {...update, github}
                     }
+                   return TeamMember.findOneAndUpdate({ userId: user._id }, update, { new: true })
+                        .then(async teamMemberFind => {
+                            const userInfo = await User.findById(user._id).then(res => res);
+                            if (teamMemberFind === null) {
+                                const newTeamMember = new TeamMember({...update});
+                                return newTeamMember.save()
+                                    .then(res => ({
+                                        ...res._doc,
+                                        ...userInfo._doc
+                                    }))
+                                    .catch(res => res)
+                            } else {
+                                return {
+                                    ...teamMemberFind._doc,
+                                    ...userInfo._doc
+                                }
+                            }
+                        })
+                        .catch(res => console.log({res}))
                 } else {
                     return new GraphQLError({
                             errorCode: 400,
