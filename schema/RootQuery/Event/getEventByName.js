@@ -1,4 +1,4 @@
-import {GraphQLError, GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString} from "graphql";
+import {GraphQLError, GraphQLNonNull, GraphQLObjectType, GraphQLString} from "graphql";
 import fields from "../../QueryMutationHelper/eventFields";
 import Event from "../../../models/Event";
 
