@@ -4,11 +4,13 @@ import {
 
 import userMutations from "./User"
 import teamMemberMutations from "./TeamMember";
+import eventMutation from "./Event"
 const mutation = new GraphQLObjectType({
     name: "Mutation",
     fields: {
         ...userMutations,
-        ...teamMemberMutations
+        ...teamMemberMutations,
+        ...eventMutation
     }
 });
 

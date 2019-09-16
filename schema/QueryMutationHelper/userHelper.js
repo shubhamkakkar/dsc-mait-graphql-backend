@@ -18,3 +18,6 @@ export function userReturn(doc) {
     }
 }
 
+export function JWTVerify(token) {
+    return jwt.verify(token, secretKey)
+}

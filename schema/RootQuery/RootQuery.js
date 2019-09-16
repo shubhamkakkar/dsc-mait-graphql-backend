@@ -1,20 +1,16 @@
 import {GraphQLObjectType} from "graphql"
-import profile from "./User/profile";
-import { teamMembers, teamMember } from "./TeamMembers"
-const userQuery = {
-    profile
-};
+import teamMemberQuery from "./TeamMembers";
+import userQuery from "./User";
+import eventQuery from "./Event";
 
-const teamMemberQuery = {
-    teamMembers,
-    teamMember
-};
+
 
 const RootQuery = new GraphQLObjectType({
     name: "RootQuery",
     fields: () => ({
         ...userQuery,
-        ...teamMemberQuery
+        ...teamMemberQuery,
+        ...eventQuery
     })
 });
 
