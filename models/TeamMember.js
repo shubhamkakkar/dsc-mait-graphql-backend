@@ -2,18 +2,22 @@
 import { Schema, model } from "mongoose";
 
 const TeamMember = new Schema({
-    userId: {
+    email: {
         type: String,
         required: true
     },
-    linkedin : {
+    linkedin: {
         type: String,
         required: true
     },
-    github : {
+    github: {
         type: String,
     },
-    bio : {
+    bio: {
+        type: String,
+        required: true
+    },
+    role: {
         type: String,
         required: true
     },

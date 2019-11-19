@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bd3d255-3cd2-4fe3-b043-c896d90845d5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/schema/RootQuery/Event/getEventByName.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/RootQuery/Event/getEventByName.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +75,7 @@
       <workItem from="1568485388394" duration="807000" />
       <workItem from="1568486239138" duration="2387000" />
       <workItem from="1568551063487" duration="3327000" />
-      <workItem from="1568641105334" duration="253000" />
+      <workItem from="1568641105334" duration="1148000" />
     </task>
     <servers />
   </component>

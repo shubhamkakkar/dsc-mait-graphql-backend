@@ -8,7 +8,6 @@ import eventMutation from "./Event"
 const mutation = new GraphQLObjectType({
     name: "Mutation",
     fields: {
-        ...userMutations,
         ...teamMemberMutations,
         ...eventMutation
     }
